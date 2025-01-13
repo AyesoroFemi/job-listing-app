@@ -1,23 +1,16 @@
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 import JobPosting from "../components/JobPosting"
+import { useLoaderData } from "react-router-dom"
 
 function Home() {
-    const [jobs, setJobs] = useState([])
+    // const [jobs, setJobs] = useState([])
 
-    const fetchJobs = async () => {
-        const res = await fetch("http://localhost:3000/jobs", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            }
-        })
-        const data = await res.json()
-        setJobs(data)
-    }
+     const jobs = useLoaderData()
+     console.log(jobs)
 
-    useEffect(() => {
-        fetchJobs()
-    }, [])
+    // useEffect(() => {
+    //     fetchJobs()
+    // }, [])
 
     // const jobPosting = {
     //     title: "Full stack dev",

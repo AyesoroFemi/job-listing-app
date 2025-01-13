@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 function Job({ deleteJob }) {
 //   const [job, setJob] = useState({});
   const job = useLoaderData()
+  // loader jobLoader
 
 //   console.log("what is jobData", jobData)
 
@@ -57,12 +58,13 @@ function Job({ deleteJob }) {
 }
 
 
-const jobLoader = async ({ params }) => {
-    const res = await fetch(`http://localhost:3000/jobs/${params.id}`)
-    const data = await res.json()
-    return data
-}
+// const jobLoader = async ({ params }) => {
+//     const res = await fetch(`http://localhost:3000/jobs/${params.id}`)
+//     const data = await res.json()
+//     console.log('what is the param.id', params.id)
+//     return data
+// }
 
-export { Job as default, jobLoader }
+export { Job as default }
 
 

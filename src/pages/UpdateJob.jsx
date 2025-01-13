@@ -25,21 +25,21 @@ function UpdateJob({updateJob}) {
   const navigate = useNavigate();
 
 
-
-//   const fetchJob = async (id) => {
-//     const res = await fetch(`http://localhost:3000/jobs/${id}`);
-//     const data = await res.json();
-//     // setJob(data);
-//     setTitle(data?.title);
-//     setJobType(data?.type);
-//     setDescription(data?.description);
-//     setLocation(data?.location);
-//     setSalary(data?.salary);
-//     setCompanyName(data?.company?.name);
-//     setCompanyEmail(data?.company?.contactEmail);
-//     setCompanyPhone(data?.company?.contactPhone);
-//     setCompanyDescription(data?.company?.description);
-//   };
+  // const fetchJob = async (id) => {
+  //   const res = await fetch(`http://localhost:3000/jobs/${id}`);
+  //   const data = await res.json();
+  //   console.log(data)
+  //   // setJob(data);
+  //   setTitle(data?.title);
+  //   setJobType(data?.type);
+  //   setDescription(data?.description);
+  //   setLocation(data?.location);
+  //   setSalary(data?.salary);
+  //   setCompanyName(data?.company?.name);
+  //   setCompanyEmail(data?.company?.contactEmail);
+  //   setCompanyPhone(data?.company?.contactPhone);
+  //   setCompanyDescription(data?.company?.description);
+  // };
 
 //   useEffect(() => {
 //     fetchJob(id);
@@ -50,7 +50,7 @@ function UpdateJob({updateJob}) {
 
   const handleJobUpdate = () => {
     const body = {
-    id,
+      id,
       title: title,
       type: jobType,
       description: description,

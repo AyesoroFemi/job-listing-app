@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
-function AddJob({ addJob}) {
+function AddJob({ addJob, deleteJob}) {
   const [title, setTitle] = useState("");
   const [jobType, setJobType] = useState("");
   const [description, setDescription] = useState("");
@@ -15,10 +15,11 @@ function AddJob({ addJob}) {
   const [companyDescription, setCompanyDescription] = useState("");
 
   const navigate = useNavigate()
-
+deleteJob()
 
 //   const getPostJobData = localStorage.getItem("jobs")
 //   console.log(JSON.parse(getPostJobData))
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +36,6 @@ function AddJob({ addJob}) {
         contactPhone: companyPhone,
       },
     };
-
     addJob(job);
     toast.success("Job Added Successfully")
     navigate("/")
