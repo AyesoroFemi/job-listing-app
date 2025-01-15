@@ -1,12 +1,19 @@
-import { useLoaderData } from "react-router-dom"
+// import { useLoaderData } from "react-router-dom"
+
+// import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
+import { fetchJobs } from "../util/api";
 
 function Listings() {
-    const jobs = useLoaderData()
-    console.log(jobs)
+
+    const { data } = useQuery({
+      queryKey: ["job-listing"],
+      queryFn: fetchJobs
+    })
 
   return (
     <div>
-        {jobs.map((job) => {
+        {data?.map((job) => {
             return (
               <div key={job.id}>
                 <h1>{job.title}</h1>

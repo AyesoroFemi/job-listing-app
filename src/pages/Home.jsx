@@ -1,29 +1,34 @@
 // import { useEffect, useState } from "react"
+// import { useQuery } from "react-query"
+import { useQuery } from "@tanstack/react-query";
 import JobPosting from "../components/JobPosting"
-import { useLoaderData } from "react-router-dom"
+import { fetchJobs } from "../util/api";
+// import { useLoaderData } from "react-router-dom"
 
 function Home() {
-    // const [jobs, setJobs] = useState([])
+   
 
-     const jobs = useLoaderData()
-     console.log(jobs)
+    const {data, isLoading, error} = useQuery({
+      queryKey: ["jobs"],
+      queryFn: fetchJobs,
+    });
 
-    // useEffect(() => {
-    //     fetchJobs()
-    // }, [])
+    //  if (isLoading) return "Loading...";
+    if(isLoading) {
+      return (
+        <h1>Loading....</h1>
+      )
+    }
 
-    // const jobPosting = {
-    //     title: "Full stack dev",
-    //     categories: "Full stack",
-    //     time: "Remote",
-    //     location: "Lagos, Nigeria",
-    // }
-
-    // localStorage.setItem("jobs", JSON.stringify(jobPosting))
+    if(error) {
+      return (
+        <h1>Error: {error.message}</h1>
+      )
+    }
 
   return (
     <div>
-        <JobPosting jobs={jobs}/>
+        <JobPosting jobs={data}/>
     </div>
   )
 }

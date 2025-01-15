@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 function JobPosting({jobs}) {
   return (
     <div className="job">
-        {jobs.map((job) => {
+        {jobs?.map((job) => {
             return (
                 <Link to={`/jobs/${job.id}`} className="job-card" key={job.id}>
                 <h1>{job.title}</h1>

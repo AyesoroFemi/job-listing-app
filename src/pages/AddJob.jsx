@@ -21,6 +21,8 @@ deleteJob()
 //   console.log(JSON.parse(getPostJobData))
 
 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const job = {
